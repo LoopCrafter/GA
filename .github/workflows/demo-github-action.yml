@@ -1,0 +1,8 @@
+name: Github Action Demo
+on: [push]
+jobs:
+  Explore-github-action:
+    runs-on: ubuntu-latest
+    steps:
+      -name: first step on action
+      run: echo "this is first step of github-action"
