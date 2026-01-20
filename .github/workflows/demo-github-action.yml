@@ -1,8 +1,21 @@
 name: Github Action Demo
 on: [push]
+strategy:
+  matrix:
+    node-version: ['18.x', '20.x']
+
 jobs:
   Explore-github-action:
     runs-on: ubuntu-latest
     steps:
     -  name: first step on action
        run: echo "this is first step of github-action"
+
+  backend:
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: install dependencies
+      run: cd backend && npm i 
+
