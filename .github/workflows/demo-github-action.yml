@@ -9,10 +9,12 @@ jobs:
        run: echo "this is first step of github-action"
 
   backend:
-    - name: Use Node.js 20.x
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20.x'
-    - name: install dependencies
-      run: cd backend && npm i 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: install dependencies
+        run: cd backend && npm i 
 
